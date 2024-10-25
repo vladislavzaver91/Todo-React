@@ -1,0 +1,20 @@
+{
+	"placeholderSearch": "Note search...",
+	"placeholderAdd": "Enter todo text...",
+	"itemsLeft": "items left",
+	"clearCompleted": "Clear completed",
+
+	"all": "All",
+	"active": "Active",
+	"completed": "Completed",
+
+	"addTodo": "Add Todo",
+	"add": "Add",
+
+	"dontHaveAnyTasks": "There are no tasks registered here yet.",
+	"createTasks": "Create tasks and organize your to-do items.",
+
+	"loading": "Loading...",
+
+	"errorOccurred": "Error occurred"
+}

@@ -1,13 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: 'Josefin Sans', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.dark {
+	background: #171823;
+}
+
+.container {
+	margin: 0 auto;
+	padding-left: 24px;
+	padding-right: 24px;
+
+	@media screen and (min-width: 768px) {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+	@media screen and (min-width: 1024px) {
+		padding-left: 60px;
+		padding-right: 60px;
+	}
+
+	@media screen and (min-width: 1440px) {
+		max-width: 1440px;
+		padding-left: 80px;
+		padding-right: 80px;
+	}
+}
+
+.wrapper {
+	@media screen and (min-width: 768px) {
+		max-width: 540px;
+		margin: 0 auto;
+	}
+}
+
+/* App background image */
+
+.bg-image {
+	background-image: url('./images/bg-img-light_mob.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 200px;
+	@media screen and (min-width: 768px) {
+		background-image: url('./images/bg-img-light_desktop.jpg');
+		height: 300px;
+	}
+}
+
+.bg-image__dark {
+	background-image: url('./images/bg-img-dark_mob.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 200px;
+	@media screen and (min-width: 768px) {
+		background-image: url('./images/bg-img-dark_desktop.jpg');
+		height: 300px;
+	}
+}
+
+/* Применяем стили к элементу с классом custom-scrollbar */
+
+.custom-scrollbar::-webkit-scrollbar {
+	width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+	background-color: #d1d2da;
+	border-radius: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 5px;
+}
+
+/* TodoList */
+
+.mobileScreen {
+	@media screen and (min-width: 768px) {
+		display: none;
+	}
+}
+
+.desktopScreen {
+	@media screen and (max-width: 767px) {
+		display: none;
+	}
+}
+/* TodoItem */
+
+.scrollbar-hide::-webkit-scrollbar {
+	display: none;
+}
+
+.scrollbar-hide {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.custom-checkbox {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	position: relative;
+	@media screen and (min-width: 768px) {
+		width: 24px;
+		height: 24px;
+	}
+}
+
+.custom-checkbox__indicator {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	border: 1px solid #e3e4f1;
+	border-radius: 50%;
+	position: relative;
+	cursor: pointer;
+}
+
+.custom-checkbox__indicator.dark {
+	border: 1px solid #5b5e7e;
+}
+
+.custom-checkbox input:checked + .custom-checkbox__indicator {
+	background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
+	border: none;
+}
+
+.custom-checkbox__indicator::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 0.5rem;
+	height: 0.5rem;
+	border: solid white;
+	border-width: 0 2px 2px 0;
+	transform: translate(-50%, -50%) rotate(45deg);
+	opacity: 0;
+	transition: opacity 0.2s;
+}
+
+.custom-checkbox input:checked + .custom-checkbox__indicator::after {
+	opacity: 1;
+}
+
+/* TodoStages buttons */
+
+.filter-btn {
+	@apply text-secondColor dark:text-dSecondColor font-bold text-sm tracking-tighter focus:text-primeColor dark:focus:text-borderColor hover:text-primeColor dark:hover:text-borderColor;
+}
+
+.active {
+	@apply text-accentColor dark:text-accentColor;
+}
+
+/* Skeleton */
+
+.custom-skeleton {
+	@apply bg-gradient-to-r from-secondColor via-primeColor to-secondColor animate-shimmer rounded-md;
+}
+
+.dark .custom-skeleton {
+	@apply from-dSecondColor via-dBorderColor to-dSecondColor;
 }
