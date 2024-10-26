@@ -85,13 +85,13 @@ body {
 
 /* TodoList */
 
-.mobileScreen {
+.mobile {
 	@media screen and (min-width: 768px) {
 		display: none;
 	}
 }
 
-.desktopScreen {
+.desktop {
 	@media screen and (max-width: 767px) {
 		display: none;
 	}

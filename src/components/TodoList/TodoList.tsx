@@ -46,7 +46,7 @@ const TodoList = ({ filteredTodos }: { filteredTodos: Todo[] }) => {
 						))}
 					</ul>
 					{/* mobile screen */}
-					<div className="mobileScreen flex justify-between py-4 px-5">
+					<div className="mobile flex justify-between py-4 px-5">
 						<p className="font-medium text-sm text-secondColor dark:text-dSecondColor">
 							{activeTodos.length} <Translator>itemsLeft</Translator>
 						</p>
@@ -59,7 +59,7 @@ const TodoList = ({ filteredTodos }: { filteredTodos: Todo[] }) => {
 					</div>
 
 					{/* desktop screen */}
-					<div className="desktopScreen flex justify-between py-4 px-5 md:px-6">
+					<div className="desktop flex justify-between py-4 px-5 md:px-6">
 						<p className="font-normal text-sm text-secondColor dark:text-dSecondColor">
 							{activeTodos.length} <Translator>itemsLeft</Translator>
 						</p>

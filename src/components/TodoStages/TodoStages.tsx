@@ -9,7 +9,7 @@ const TodoStages = ({ activeTodoStage, setTodoStage }: TodoStagesProps) => {
 	return (
 		<>
 			{/* mobile screen */}
-			<div className="mobileScreen mt-4 h-12 flex justify-center shadow-custom dark:shadow-dCustom bg-white dark:bg-dSecondBgColor rounded-md">
+			<div className="mobile mt-4 h-12 flex justify-center shadow-custom dark:shadow-dCustom bg-white dark:bg-dSecondBgColor rounded-md">
 				<div className="w-[166px] flex items-center justify-between">
 					<button
 						className={`filter-btn ${activeTodoStage === 'all' ? 'active' : ''}`}
@@ -33,7 +33,7 @@ const TodoStages = ({ activeTodoStage, setTodoStage }: TodoStagesProps) => {
 			</div>
 
 			{/* desktop screen */}
-			<div className="desktopScreen -mt-[35px] flex justify-center shadow-custom bg-white dark:bg-dSecondBgColor rounded-md">
+			<div className="desktop -mt-[35px] flex justify-center shadow-custom bg-white dark:bg-dSecondBgColor rounded-md">
 				<div className="w-[166px] flex items-center justify-around">
 					<button
 						className={`filter-btn ${activeTodoStage === 'all' ? 'active' : ''}`}
