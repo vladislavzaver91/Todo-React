@@ -11,51 +11,41 @@ export const useTodos = () => {
 		isLoading,
 		error,
 	} = useQuery<Todo[], Error>({
-		queryKey: ['todos'], // Passing the query key in the object
+		queryKey: ['todos'],
 		queryFn: () => fetchItem('todos'),
 	});
 
-	// Adding new todo
 	const addTodo = useMutation({
 		mutationFn: (newTodo: Omit<Todo, 'id'>) => addItem('todos', newTodo),
-		onSuccess: () => {
-			queryClient.invalidateQueries({ queryKey: ['todos'] });
-		},
+		onSuccess: () => queryClient.invalidateQueries({ queryKey: ['todos'] }),
+		onError: error => console.error('Error adding todo:', error),
 	});
 
-	// Change of completion status todo
 	const toggleTodo = useMutation({
 		mutationFn: (updatedTodo: Todo) => updateItem('todos', updatedTodo.id, updatedTodo),
-		onSuccess: () => {
-			queryClient.invalidateQueries({ queryKey: ['todos'] });
-		},
+		onSuccess: () => queryClient.invalidateQueries({ queryKey: ['todos'] }),
+		onError: error => console.error('Error toggling todo:', error),
 	});
 
-	// Editing todo
 	const editTodo = useMutation({
 		mutationFn: (updatedTodo: Todo) => updateItem('todos', updatedTodo.id, updatedTodo),
-		onSuccess: () => {
-			queryClient.invalidateQueries({ queryKey: ['todos'] });
-		},
+		onSuccess: () => queryClient.invalidateQueries({ queryKey: ['todos'] }),
+		onError: error => console.error('Error editing todo:', error),
 	});
 
-	// Deleting todo
 	const deleteTodo = useMutation({
 		mutationFn: (id: string) => deleteItem('todos', id),
-		onSuccess: () => {
-			queryClient.invalidateQueries({ queryKey: ['todos'] });
-		},
+		onSuccess: () => queryClient.invalidateQueries({ queryKey: ['todos'] }),
+		onError: error => console.error('Error deleting todo:', error),
 	});
 
-	// Deleting completed todos
 	const clearCompletedTodos = useMutation({
 		mutationFn: async (todos: Todo[]) => {
 			const completedTodos = todos.filter(todo => todo.completed);
 			await Promise.all(completedTodos.map(todo => deleteItem('todos', todo.id)));
 		},
-		onSuccess: () => {
-			queryClient.invalidateQueries({ queryKey: ['todos'] });
-		},
+		onSuccess: () => queryClient.invalidateQueries({ queryKey: ['todos'] }),
+		onError: error => console.error('Error clearing completed todos:', error),
 	});
 
 	return {

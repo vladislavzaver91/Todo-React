@@ -74,7 +74,7 @@ const TodoList = ({ filteredTodos }: { filteredTodos: Todo[] }) => {
 			) : (
 				<div className="flex flex-col items-center justify-center bg-white dark:bg-dSecondBgColor h-[376px] md:h-[446px]">
 					<ClipboardIcon className="size-14 fill-primeColor dark:fill-dPrimeColor" />
-					<div className="mt-4 text-primeColor dark:text-dPrimeColor">
+					<div className="mt-4 text-center text-primeColor dark:text-dPrimeColor">
 						<b>
 							<Translator>dontHaveAnyTasks</Translator>
 						</b>

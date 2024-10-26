@@ -44,25 +44,25 @@ body {
 /* App background image */
 
 .bg-image {
-	background-image: url('./images/bg-img-light_mob.jpg');
+	background-image: url('/src/images/bg-img-light_mob.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	height: 200px;
 	@media screen and (min-width: 768px) {
-		background-image: url('./images/bg-img-light_desktop.jpg');
+		background-image: url('/src/images/bg-img-light_desktop.jpg');
 		height: 300px;
 	}
 }
 
 .bg-image__dark {
-	background-image: url('./images/bg-img-dark_mob.jpg');
+	background-image: url('/src/images/bg-img-dark_mob.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	height: 200px;
 	@media screen and (min-width: 768px) {
-		background-image: url('./images/bg-img-dark_desktop.jpg');
+		background-image: url('/src/images/bg-img-dark_desktop.jpg');
 		height: 300px;
 	}
 }

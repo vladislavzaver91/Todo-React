@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useMemo, useState } from 'react';
+import React, { createContext, useCallback, useEffect, useMemo, useState } from 'react';
 
 interface IThemeContext {
 	theme: string;
@@ -24,17 +24,11 @@ export const ThemeProvider = ({ children }: ThemeProps) => {
 		localStorage.setItem('theme', theme);
 	}, [theme]);
 
-	const toggleTheme = () => {
-		setTheme(theme === 'light' ? 'dark' : 'light');
-	};
+	const toggleTheme = useCallback(() => {
+		setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+	}, []);
 
-	const value = useMemo(
-		() => ({
-			theme,
-			toggleTheme,
-		}),
-		[theme],
-	);
+	const value = useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
 
 	return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 };
