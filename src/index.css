@@ -84,14 +84,14 @@ body {
 }
 
 /* TodoList */
-.desktop {
-	@media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
+	.desktop {
 		display: none;
 	}
 }
 
-.mobile {
-	@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+	.mobile {
 		display: none;
 	}
 }
