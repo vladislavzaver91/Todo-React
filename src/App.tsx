@@ -79,6 +79,7 @@ const App = () => {
 
 				<AddTodoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onAddTodo={handleAddTodo} />
 			</div>
+			<p className="mt-16 text-center text-sm font-medium text-primeColor dark:text-dPrimeColor">VladZaver2024&#169;</p>
 		</div>
 	);
 };
