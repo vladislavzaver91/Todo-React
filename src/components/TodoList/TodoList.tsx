@@ -1,10 +1,12 @@
 import { Todo } from '../../App';
+import { useTheme } from '../../helpers/hooks/useTheme';
 import { useTodoContext } from '../../helpers/hooks/useTodoContext';
 import { ClipboardIcon } from '../../icons';
 import Translator from '../Translator/Translator';
 import TodoItem from './TodoItem/TodoItem';
 
 const TodoList = ({ filteredTodos }: { filteredTodos: Todo[] }) => {
+	const { theme } = useTheme();
 	const { todos, toggleTodo, editTodo, deleteTodo, clearCompletedTodos } = useTodoContext();
 	const activeTodos = todos.filter(todo => !todo.completed);
 
@@ -34,7 +36,11 @@ const TodoList = ({ filteredTodos }: { filteredTodos: Todo[] }) => {
 		<div className="flex flex-col justify-end h-[376px] md:h-[446px] shadow-custom dark:shadow-dCustom bg-white dark:bg-dSecondBgColor rounded-md">
 			{todos.length > 0 ? (
 				<>
-					<ul className="flex-1 overflow-y-auto custom-scrollbar rounded-md">
+					<ul
+						className={`flex-1 overflow-y-auto ${
+							theme === 'dark' ? 'custom-scrollbar__dark' : 'custom-scrollbar'
+						} rounded-md`}
+					>
 						{filteredTodos.map((todo, index) => (
 							<TodoItem
 								key={todo.id}

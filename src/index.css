@@ -49,10 +49,6 @@ body {
 	background-position: center;
 	background-repeat: no-repeat;
 	height: 200px;
-	@media screen and (min-width: 768px) {
-		background-image: url('/src/images/bg-img-light_desktop.jpg');
-		height: 300px;
-	}
 }
 
 .bg-image__dark {
@@ -61,7 +57,15 @@ body {
 	background-position: center;
 	background-repeat: no-repeat;
 	height: 200px;
-	@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 768px) {
+	.bg-image {
+		background-image: url('/src/images/bg-img-light_desktop.jpg');
+		height: 300px;
+	}
+
+	.bg-image__dark {
 		background-image: url('/src/images/bg-img-dark_desktop.jpg');
 		height: 300px;
 	}
@@ -78,9 +82,17 @@ body {
 	border-radius: 5px;
 }
 
+.custom-scrollbar__dark::-webkit-scrollbar-thumb {
+	background-color: #4d5067;
+}
+
 .custom-scrollbar::-webkit-scrollbar-track {
 	background: #f1f1f1;
 	border-radius: 5px;
+}
+
+.custom-scrollbar__dark::-webkit-scrollbar-track {
+	background: #5b5e7e;
 }
 
 /* TodoList */
