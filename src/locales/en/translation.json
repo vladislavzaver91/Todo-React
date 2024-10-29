@@ -16,5 +16,8 @@
 
 	"loading": "Loading...",
 
-	"errorOccurred": "Error occurred"
+	"errorOccurred": "Error occurred",
+
+	"ErrorTextRequired": "Text is required",
+	"ErrorTextMustBeLong": "Text must be at least 2 characters long."
 }

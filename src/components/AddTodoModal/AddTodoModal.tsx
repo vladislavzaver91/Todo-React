@@ -10,12 +10,13 @@ interface AddTodoModalProps {
 	onAddTodo: (text: string) => void;
 }
 
-const validationSchema = Yup.object({
-	text: Yup.string().required('Text is required').min(2, 'Text must be at least 2 characters long.'),
-});
-
 const AddTodoModal = ({ isOpen, onClose, onAddTodo }: AddTodoModalProps) => {
 	const { t } = useTranslation();
+
+	const getValidationSchema = () =>
+		Yup.object({
+			text: Yup.string().required(t('ErrorTextRequired')).min(2, t('ErrorTextMustBeLong')),
+		});
 
 	return !isOpen ? null : (
 		<div className="fixed inset-0 flex items-center justify-center bg-black dark:bg-dSecondColor  bg-opacity-65 dark:bg-opacity-65">
@@ -28,7 +29,7 @@ const AddTodoModal = ({ isOpen, onClose, onAddTodo }: AddTodoModalProps) => {
 				</h2>
 				<Formik
 					initialValues={{ text: '' }}
-					validationSchema={validationSchema}
+					validationSchema={getValidationSchema()}
 					onSubmit={(values, { resetForm }) => {
 						onAddTodo(values.text);
 						resetForm();

@@ -17,5 +17,8 @@
 
 	"loading": "Завантаження...",
 
-	"errorOccurred": "Сталася помилка"
+	"errorOccurred": "Сталася помилка",
+
+	"ErrorTextRequired": "Текст є обов'язковим",
+	"ErrorTextMustBeLong": "Текст повинен містити не менше 2 символів."
 }
